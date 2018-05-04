@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.osi.cc</groupId>
+	<artifactId>WebHook</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+
+	<name>WebHook</name>
+	<description>WebHook</description>
+
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		<springframework.version>4.3.5.RELEASE</springframework.version>
+		
+		<commons.configuration.version>1.0-rc1</commons.configuration.version>
+		<commons.collections.version>3.1</commons.collections.version>
+		<commons.lang.version>2.4</commons.lang.version>
+		<commons.io.version>2.4</commons.io.version>
+		<jcl.slf4j.version>1.7.12</jcl.slf4j.version>
+   		
+	</properties>
+    
+   
+	<dependencies>
+	<!-- https://mvnrepository.com/artifact/jdom/jdom -->
+<dependency>
+    <groupId>jdom</groupId>
+    <artifactId>jdom</artifactId>
+    <version>1.1</version>
+</dependency>
+	
+
+
+<dependency>
+    <groupId>org.json</groupId>
+    <artifactId>json</artifactId>
+    <version>20140107</version>
+</dependency>
+	
+	<dependency>
+		<groupId>org.slf4j</groupId>
+		<artifactId>jcl-over-slf4j</artifactId>
+		<version>${jcl.slf4j.version}</version>
+	</dependency>
+
+	<!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
+<dependency>
+    <groupId>ch.qos.logback</groupId>
+    <artifactId>logback-classic</artifactId>
+    <version>1.2.3</version>
+    
+</dependency>
+	
+
+    
+	<dependency>
+    <groupId>javax.inject</groupId>
+    <artifactId>javax.inject</artifactId>
+    <version>1</version>
+</dependency>
+
+
+
+	<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-core</artifactId>
+    <version>2.7.3</version>
+</dependency>
+	
+	<dependency>
+	     <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.7.3</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>2.7.3</version>
+        </dependency>
+    <!-- https://mvnrepository.com/artifact/com.constantcontact/constantcontact -->
+
+    
+	<!-- https://mvnrepository.com/artifact/com.squareup.retrofit2/retrofit -->
+<dependency>
+    <groupId>com.squareup.retrofit2</groupId>
+    <artifactId>retrofit</artifactId>
+    <version>2.3.0</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/com.squareup.okio/okio -->
+<dependency>
+    <groupId>com.squareup.okio</groupId>
+    <artifactId>okio</artifactId>
+    <version>1.13.0</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/com.squareup.okhttp3/logging-interceptor -->
+<dependency>
+    <groupId>com.squareup.okhttp3</groupId>
+    <artifactId>logging-interceptor</artifactId>
+    <version>3.9.0</version>
+</dependency>
+
+
+<!-- https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp -->
+<dependency>
+    <groupId>com.squareup.okhttp3</groupId>
+    <artifactId>okhttp</artifactId>
+    <version>3.9.0</version>
+</dependency>
+
+
+	<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+<dependency>
+
+
+    <groupId>org.apache.commons</groupId>
+    <artifactId>commons-lang3</artifactId>
+    <version>3.0</version>
+</dependency>
+	
+	<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+
+		
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+			
+	</dependencies>
+
+
+  
+  <build>
+    <finalName>WebHook</finalName>
+    <plugins>
+    	<plugin>
+    	    <groupId>org.apache.maven.plugins</groupId>
+       	    <artifactId>maven-compiler-plugin</artifactId>
+        	<version>2.2</version>
+    		<configuration>
+    			<source>1.7</source>
+    			<target>1.7</target>
+    		</configuration>
+    	</plugin>
+    	
+    </plugins>
+  </build>
+  
+		<repositories>
+		<repository>
+		<id>osi-public</id>
+		<url>
+		http://172.30.30.43:8081/nexus/content/repositories/public/
+		</url>
+		<name>OSI Public Repository</name>
+		<snapshots>
+		<enabled>false</enabled>
+		</snapshots>
+		</repository>
+		<repository>
+		<id>osi-releases</id>
+		<url>
+		http://172.30.30.43:8081/nexus/content/repositories/releases/
+		</url>
+		<name>OSI Repository</name>
+		<snapshots>
+		<enabled>false</enabled>
+		</snapshots>
+		<releases>
+		<enabled>true</enabled>
+		<updatePolicy>always</updatePolicy>
+		</releases>
+		</repository>
+		<repository>
+		<url>http://download.java.net/maven/2/</url>
+		<name>Java NET</name>
+		<id>java-net</id>
+		<snapshots>
+		<enabled>false</enabled>
+		</snapshots>
+		<releases>
+		<enabled>true</enabled>
+		<updatePolicy>never</updatePolicy>
+		</releases>
+		</repository>
+		</repositories>	
+
+</project>
