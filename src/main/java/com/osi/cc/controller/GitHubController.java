@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -31,14 +32,17 @@ private static final Logger logger = LoggerFactory.getLogger(GitHubController.cl
 ObjectMapper mapper;
 	
 	@RequestMapping(value = "/PostReceive", method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
-    public  ResponseEntity<Object> getGitHubData(@RequestBody String data, HttpServletRequest request)  
+    public  ResponseEntity<Object> getGitHubData(@RequestBody Object data, HttpServletRequest request)  
     {
+		JSONObject jso=new JSONObject();
+		jso.put("jss", data);
 			
 			logger.info("entering getAllFilesInConstantContact   "+data);
-			System.out.println("post reecive get called"+data);
+			System.out.println("post reecive get called"+jso.get("jss").toString());
+			
 			
 			logger.info("exiting getAllFilesInConstantContact   ");
-			return new ResponseEntity<Object>(data,HttpStatus.OK);
+			return new ResponseEntity<Object>(jso.get("jss").toString(),HttpStatus.OK);
  	   
     }
 
