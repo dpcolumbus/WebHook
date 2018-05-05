@@ -10,6 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,7 +31,7 @@ private static final Logger logger = LoggerFactory.getLogger(GitHubController.cl
 ObjectMapper mapper;
 	
 	@RequestMapping(value = "/PostReceive", method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
-    public  ResponseEntity<Object> getGitHubData(Object data, HttpServletRequest request)  
+    public  ResponseEntity<Object> getGitHubData(@RequestBody String data, HttpServletRequest request)  
     {
 			
 			logger.info("entering getAllFilesInConstantContact   "+data);
@@ -40,7 +41,18 @@ ObjectMapper mapper;
 			return new ResponseEntity<Object>(data,HttpStatus.OK);
  	   
     }
-	
+
+	@RequestMapping(value = "/check", method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
+    public  ResponseEntity<Object> getGitHubData(HttpServletRequest request)  
+    {
+			
+			String s="deepak";
+			System.out.println("post reecive get called"+s);
+			
+			logger.info("exiting getAllFilesInConstantContact   ");
+			return new ResponseEntity<Object>(s,HttpStatus.OK);
+ 	   
+    }
 	
 
 }
