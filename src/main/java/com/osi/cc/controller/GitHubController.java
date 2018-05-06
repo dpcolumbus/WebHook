@@ -38,8 +38,7 @@ ObjectMapper mapper;
 		jso.put("jss", data);
 			
 			logger.info("entering getAllFilesInConstantContact   "+data);
-			System.out.println("post reecive get called"+jso.get("jss").toString());
-			
+			System.out.println("post reecive get called"+jso.get("jss").toString());		
 			
 			logger.info("exiting getAllFilesInConstantContact   ");
 			return new ResponseEntity<Object>(jso.get("jss").toString(),HttpStatus.OK);
