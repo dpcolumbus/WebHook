@@ -35,7 +35,7 @@ ObjectMapper mapper;
     public  ResponseEntity<Object> getGitHubData(@RequestBody Object data, HttpServletRequest request)  
     {
 		JSONObject jso=new JSONObject();
-		jso.put("jss", data);
+		   jso.put("jss", data);
 			
 			logger.info("entering getAllFilesInConstantContact   "+data);
 			System.out.println("post reecive get called"+jso.get("jss").toString());		
